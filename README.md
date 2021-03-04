@@ -3,6 +3,11 @@
 With this CLI you will be able to connect through SSH to the desired client, generate a ZIP file in the SiteGround server of the "www/" directory, copy that file to the local directory under './backup', delete the server file, and download the zip through SFTP.
 
 Then, upload this ZIP file to the specified GSC Bucket.
+
+## TODO
+- Test suite
+- Upload the ZIP to the GCS Bucket
+- Add an env file? so no credential input is needed
 ## Installation
 
 
