@@ -8,6 +8,7 @@ Then, upload this ZIP file to the specified GSC Bucket.
 - Test suite
 - Upload the ZIP to the GCS Bucket
 - Add an env file? so no credential input is needed
+- Refactor code
 ## Installation
 
 
