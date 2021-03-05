@@ -36,9 +36,9 @@ type SSHConnection struct {
 	Port     string
 }
 
-// connectCmd represents the connect command
-var connectCmd = &cobra.Command{
-	Use:   "connect",
+// downloadZipBackup represents the connect command
+var downloadZipBackup = &cobra.Command{
+	Use:   "backup",
 	Short: "Connect through SSH to the desired directory, generate a ZIP file in the server, copy that file to the local directory under './backup', delete the server file, and download the zip through SFTP",
 	Long:  ``,
 	Run: func(cmd *cobra.Command, args []string) {
@@ -53,7 +53,7 @@ var connectCmd = &cobra.Command{
 }
 
 func init() {
-	rootCmd.AddCommand(connectCmd)
+	rootCmd.AddCommand(downloadZipBackup)
 }
 
 func getConnectionParameters() SSHConnection {
@@ -105,7 +105,7 @@ func establishSSHConection(sshParams SSHConnection) *ssh.Client {
 
 	client, err := ssh.Dial("tcp", sshParams.Host+":"+sshParams.Port, sshConfig)
 	if err != nil {
-		panic("Failed to dial: " + err.Error())
+		log.Fatal(err)
 	}
 
 	fmt.Println("Successfully connected to ssh server.")
@@ -115,7 +115,7 @@ func establishSSHConection(sshParams SSHConnection) *ssh.Client {
 func sshTerminalSession(conn *ssh.Client, sshParams SSHConnection) (*ssh.Session, string) {
 	session, err := conn.NewSession()
 	if err != nil {
-		panic("Failed to create session: " + err.Error())
+		log.Fatal(err)
 	}
 
 	now := time.Now().Format("2006_01_02_150405_")
