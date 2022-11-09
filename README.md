@@ -25,13 +25,13 @@ Please write your SSH username:
 sshUsername
 
 Now introduce the client host:
-partnerskiwi.com
+yourwpsite.com
 
 Now introduce the desired port:
 18765
 
 Successfully connected to ssh server.
-File will be called: 2021_03_04_160033_partnerskiwi.com.zip
+File will be called: 2021_03_04_160033_yourwpsite.com.zip
 Zipping the site, please be patient...
 Done!
 Copying file from SFTP to your ./backups directory ...
